@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./product.css">
+</head>
+<body>
+    <div id="offer">
+        <p>GET RS 50 OFF ON ORDERS ABOVE RS 100</p>
+    </div>
+    <!-- Navigation bar -->
+    <div id="navtop">
+        <img src="./Project-logo.png" alt="">
+        <form id="searchbar">
+            <label>Search |
+                <input type="text" placeholder="Search here">
+                <span id="Submit">🔍</span>
+            </label>
+        </form>
+        <div id="location">Your Location</div>
+        <div id="register">
+            <a href=""><span>Sign In / Register</span></a>
+            <a href=""><span>Wishlist</span></a>
+            <a href=""><span>Cart</span></a>
+        </div>
+    </div>
+    <!-- Menu Category -->
+    <div id="category">
+        <div id="menu">
+            <a href="">Stores Near Me</a>
+            <a href="">Products Near Me</a>
+            <a href="">Fashion</a>
+            <a href="">Beauty & Personal Care</a>
+            <a href="">Home Decor</a>
+            <a href="">Electronics</a>
+        </div>
+    </div>
+    <div id="productbody">
+        <div id="filterBy">
+            <h2>Filter by</h2>
+            <div id="pricefilter">
+                <select id="groupBy">
+                    <option value="">Price</option>
+                    <option value="1st">Below 500</option>
+                    <option value="2nd">500-1000</option>
+                    <option value="3rd">1000-2000</option>
+                    <option value="4th">2000-5000</option>
+                    <option value="5th">Above 5000</option>
+                </select>
+            </div>
+            <div id="discountfilter">
+                <select id="groupBy">
+                    <option value="">Discount</option>
+                    <option value="1st">81%-90%</option>
+                    <option value="2nd">71%-80%</option>
+                    <option value="3rd">61%-70%</option>
+                    <option value="4th">50%-60%</option>
+                    <option value="5th">Below 50%</option>
+                </select>
+            </div>
+            <div id="categoryfilter">
+                <select id="groupBy">
+                    <option value="">Category</option>
+                    <option value="1st">Beauty & Personal</option>
+                    <option value="2nd">Beverages</option>
+                    <option value="3rd">Breakfast</option>
+                    <option value="4th">Household</option>
+                    <option value="5th">Cookware</option>
+                    <option value="6th">Fashion</option>
+                    <option value="7th">Grocery</option>
+                    <option value="8th">Home Decor</option>
+                    <option value="9th">Packaged food</option>
+                </select>
+            </div>
+            <div id="timetoshipfilter">
+                <select id="groupBy">
+                    <option value="">Time To Ship</option>
+                    <option value="1st">1 day</option>
+                    <option value="2nd">2 days</option>
+                    <option value="3rd">More than 2 days</option>
+                </select>
+            </div>
+            <div id="returnablefilter">
+                <select id="groupBy">
+                    <option value="">Returnable</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div id="cancellablefilter">
+                <select id="groupBy">
+                    <option value="">Cancellable</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+        </div>
+        
+        <div id="productsgrid">
+            <select id="sortBy">
+                <option value="">Sort by</option>
+                <option value="lowToHigh">Low To High</option>
+                <option value="highToLow">High To Low</option>
+            </selet>
+            <!-- product will append here -->
+        </div>
+    </div>
+</body>
+<script src="./product.js"></script>
+</html>
