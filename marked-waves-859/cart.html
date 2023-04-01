@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./product.css">
+    <style>
+        #cart-container {
+            width: 100%;
+            height: 600px;
+        }
+
+        #card-list {
+            width: 80%;
+            margin: 50px auto;
+        }
+
+        hr {
+            line-height: 2px;
+        }
+
+        #productdetails {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            margin: auto;
+        }
+
+        #details {
+            width: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        #productcard img {
+            width: 100%;
+            height: 150px;
+
+        }
+
+        #header {
+            width: 100%;
+        }
+
+        th {
+            min-width: 300px;
+        }
+
+        td {
+            min-width: 300px;
+            text-align: center;
+        }
+
+        #itemDesc {
+            background-color: aqua;
+            height: 100px;
+        }
+
+        .remove {
+            width: 50%;
+            height: 30px;
+            color: white;
+            background-color: brown;
+            border: none;
+            border-radius: 20px;
+        }
+
+        .minus {
+            font-size: larger;
+            background-color: transparent;
+            border: none;
+        }
+
+        .plus {
+            font-size: larger;
+            background-color: transparent;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="offer">
+        <p>GET RS 50 OFF ON ORDERS ABOVE RS 100</p>
+    </div>
+    <!-- Navigation bar -->
+    <div id="navtop">
+        <a href="./index.html"><img src="./Project-logo.png" alt=""></a>
+        <form id="searchbar">
+            <label>Search |
+                <input type="text" placeholder="Search here">
+                <span id="Submit">🔍</span>
+            </label>
+        </form>
+        <div id="location">Your Location</div>
+        <div id="register">
+            <button onclick="openRegistrationForm()">Register/Sign In</button>
+            <a href=""><span>Wishlist</span></a>
+            <a href="./cart.html"><span>Cart</span></a>
+        </div>
+    </div>
+    <div id="registration-form" class="registration-form">
+        <div class="registration-form-content">
+            <span class="close" onclick="closeRegistrationForm()">&times;</span>
+            <div id="registerblock">
+                <h2><img src="./Project-logo.png" alt=""></h2>
+                <!-- add your registration form fields here -->
+                <h3><u>Register</u></h3>
+                <p>Please provide your Mobile No.</p>
+                <input type="number" name="" id="RegisteredNum" placeholder="Enter 10 digit Mobile No.">
+                <input type="text" name="" id="Email" placeholder="Enter Valid Email Here">
+                <input type="" name="" id="Username" placeholder="Enter Unique Username">
+                <input type="text" id="password" placeholder="Password should be of 8 digits min.">
+                <button>Continue</button>
+                <a href="">Already Registered? Login</a>
+            </div>
+        </div>
+    </div>
+    <!-- Menu Category -->
+    <div id="category">
+        <div id="menu">
+            <a href="">Stores Near Me</a>
+            <a href="./product.html">Products Near Me</a>
+            <a href="">Fashion</a>
+            <a href="">Beauty & Personal Care</a>
+            <a href="">Home Decor</a>
+            <a href="">Electronics</a>
+        </div>
+    </div>
+    <div id="cart-container">
+        <div id="card-list">
+            <span>Home/</span><a href="">MyCart</a>
+            <h3>My Cart (# Items)</h3>
+            <hr>
+            <table>
+                <thead id="header">
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                </tbody>
+            </table>
+            <!-- <div id="details">
+                <span>Item Details</span>
+                <span>Quantity</span>
+                <span>MRP</span>
+            </div>
+            <hr> -->
+            <!-- <div id="productdetails">
+                <div id="productcard">
+                    <img src="" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur.</p>
+                    <button id="remove">Remove</button>
+                </div>
+                <div id="quantity">
+                    <button id="minus">-</button>
+                    <input type="number" name="" id="quantityNum">
+                    <button id="plus">+</button>
+                </div>
+                <div id="price">
+                    Price
+                </div>
+            </div> -->
+        </div>
+
+    </div>
+    <div id="bottom">
+        <div id="footer">
+            <div>
+                <h4>About Us</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, illo est doloribus error ipsa
+                    earum quos in dolores hic, explicabo pariatur natus aspernatur vero nostrum placeat aliquid sapiente
+                    alias provident amet magnam culpa obcaecati! Veritatis, earum a nobis voluptatibus provident ipsum,
+                    accusamus soluta, non possimus officiis recusandae hic obcaecati expedita.</p>
+                <h3>Payment Options</h3>
+                <div id="payment">
+                    <img src="https://logodix.com/logo/1645140.png" alt="">
+                    <img src="https://logodix.com/logo/254473.png" alt="">
+                    <img src="https://logodix.com/logo/410210.png" alt="">
+                    <img src="https://logodix.com/logo/244086.png" alt="">
+                </div>
+            </div>
+            <div>
+                <h4>Our Company</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, illo est doloribus error ipsa
+                    earum quos in dolores hic, explicabo pariatur natus aspernatur vero nostrum placeat aliquid sapiente
+                    alias provident amet magnam culpa obcaecati! Veritatis, earum a nobis voluptatibus provident ipsum,
+                    accusamus soluta, non possimus officiis recusandae hic obcaecati expedita.</p>
+            </div>
+            <div>
+                <h4>Top Categories</h4>
+                <p>Grocery</p>
+                <p>Home Decor</p>
+                <p>Fashion</p>
+                <p>Kitchen Home Decor</p>
+            </div>
+            <div>
+                <h4>Policies & Info</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, illo est doloribus error ipsa
+                    earum quos in dolores hic, explicabo pariatur natus aspernatur vero nostrum placeat aliquid sapiente
+                    alias provident amet magnam culpa obcaecati! Veritatis, earum a nobis voluptatibus provident ipsum,
+                    accusamus soluta, non possimus officiis recusandae hic obcaecati expedita.</p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+<script>
+    // Get the cart from local storage or create an empty cart if it doesn't exist
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Get the tbody element where we'll display the cart items
+    const cartTable = document.querySelector("#cart-items");
+
+    // Function to display the cart items in the table
+    function displayCart() {
+        // Clear the current contents of the table
+        cartTable.innerHTML = "";
+
+        // Loop through each item in the cart and add a row to the table
+        cart.forEach((item, index) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+      <td><div id='itemDesc'>${item.name}</div><button class="remove" data-index="${index}">Remove</button></td>
+      <td>
+        <button class="minus" data-index="${index}">-</button>
+        <span>${item.quantity}</span>
+        <button class="plus" data-index="${index}">+</button>
+      </td>
+      <td>$${item.price.toFixed(2)}</td>
+      <td>$${(item.price * item.quantity).toFixed(2)}</td>
+    `;
+            cartTable.appendChild(row);
+        });
+
+        // Save the updated cart to local storage
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    // Function to add an item to the cart
+    function addItem(name, price) {
+        // Check if the item is already in the cart
+        const existingItem = cart.find(item => item.name === name);
+        if (existingItem) {
+            // If it is, increase the quantity
+            existingItem.quantity++;
+        } else {
+            // Otherwise, add a new item to the cart
+            cart.push({
+                name,
+                price,
+                quantity: 1
+            });
+        }
+
+        // Display the updated cart in the table
+        displayCart();
+    }
+
+    // Function to remove an item from the cart
+    function removeItem(index) {
+        cart.splice(index, 1);
+
+        // Display the updated cart in the table
+        displayCart();
+    }
+
+    // Function to increase the quantity of an item
+    function increaseQuantity(index) {
+        cart[index].quantity++;
+
+        // Display the updated cart in the table
+        displayCart();
+    }
+
+    // Function to decrease the quantity of an item
+    function decreaseQuantity(index) {
+        if (cart[index].quantity > 1) {
+            cart[index].quantity--;
+
+            // Display the updated cart in the table
+            displayCart();
+        }
+    }
+
+    // Add event listeners to the table for the quantity and remove buttons
+    cartTable.addEventListener("click", event => {
+        const target = event.target;
+        if (target.matches(".remove")) {
+            const index = parseInt(target.dataset.index);
+            removeItem(index);
+        } else if (target.matches(".plus")) {
+            const index = parseInt(target.dataset.index);
+            increaseQuantity(index);
+        } else if (target.matches(".minus")) {
+            const index = parseInt(target.dataset.index);
+            decreaseQuantity(index);
+        }
+    });
+
+    // Call displayCart() when the page loads to show the current cart contents
+    displayCart();
+
+    function openRegistrationForm() {
+        document.getElementById("registration-form").style.display = "block";
+    }
+
+    function closeRegistrationForm() {
+        document.getElementById("registration-form").style.display = "none";
+    }
+
+</script>
+
+</html>

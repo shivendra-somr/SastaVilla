@@ -16,7 +16,7 @@
     </div>
     <!-- Navigation bar -->
     <div id="navtop">
-        <img src="./Project-logo.png" alt="">
+        <a href="./index.html"><img src="./Project-logo.png" alt=""></a>
         <form id="searchbar">
             <label>Search |
                 <input type="text" placeholder="Search here">
@@ -25,16 +25,54 @@
         </form>
         <div id="location">Your Location</div>
         <div id="register">
-            <a href=""><span>Sign In / Register</span></a>
-            <a href=""><span>Wishlist</span></a>
-            <a href=""><span>Cart</span></a>
+            <button onclick="openRegistrationForm()">Register/Sign In</button>
+            <a href="./cart.html"><span>Wishlist</span></a>
+            <a href="./cart.html"><span>Cart</span></a>
         </div>
     </div>
+    <div id="registration-form" class="registration-form">
+        <div class="registration-form-content">
+            <span class="closeR" onclick="closeRegistrationForm()">&times;</span>
+            <div id="registerblock">
+                <img src="./Project-logo.png" alt="">
+                <!-- Registration form fields -->
+                <span><u>Register</u></span><br>
+                <span>Please provide your Mobile No.</span><br>
+                <input type="number" name="" id="RegisteredNum" placeholder="Enter 10 digit Mobile No.">
+                <span>Enter your valid email here</span><br>
+                <input type="text" name="" id="Email" placeholder="Enter Valid Email Here">
+                <span>Enter unique username</span><br>
+                <input type="" name="" id="Username" placeholder="Enter Unique Username">
+                <span>Enter your password</span><br>
+                <input type="text" id="password" placeholder="Password should be of 8 digits min.">
+                <span id="cont">Continue</span>
+                <span onclick="showLoginForm()">Already Registered? Login</span>
+            </div>
+        </div>
+    </div>
+    <div id="login-form" class="login-form">
+        <div class="login-form-content">
+            <span class="closeS" onclick="closeLoginForm()">&times;</span>
+            <div id="loginblock">
+                <img src="./Project-logo.png" alt="">
+                <!-- Login form fields -->
+                <span><u>Login</u></span><br>
+                <span>Please enter your Mobile No. or Email and Password</span><br>
+                <input type="text" name="" id="LoginNum" placeholder="Enter 10 digit Mobile No. or Email">
+                <span>Enter your password</span><br>
+                <input type="password" id="login-password" placeholder="Enter your password">
+                <span id="login">Login</span>
+                <span onclick="openRegistrationForm()">New User? Register Here</span>
+            </div>
+        </div>
+    </div>   
+    
+     
     <!-- Menu Category -->
     <div id="category">
         <div id="menu">
             <a href="">Stores Near Me</a>
-            <a href="">Products Near Me</a>
+            <a href="./product.html">Products Near Me</a>
             <a href="">Fashion</a>
             <a href="">Beauty & Personal Care</a>
             <a href="">Home Decor</a>
@@ -57,14 +95,15 @@
         <h1>Shop By Category</h1>
     </div>
     <div id="categorySlideshow">
-        <div id="leftArrow">&#x21e6;</div>
-        <div id="ShopBy">
+        <div id="leftArrowCategory">&#x21e6;</div>
+        <div id="shopBy">
             <!-- slideshow top category -->
         </div>
-        <div id="rightArrow">&#x21e8;</div>
+        <div id="rightArrowCategory">&#x21e8;</div>
     </div>
     <br>
     <div id="slideshow">
+
     </div>
     <div id="top-last">
         <div>
@@ -77,10 +116,10 @@
     </div>
     <div id="mid">
         <div id="container">
-            <img src="https://cdn.plotch.io/image/upload/C/V/1671110234_SG9tZWRlY29yLnBuZw==.png" alt="">
-            <img src="https://cdn.plotch.io/image/upload/C/V/1671110241_NS5wbmc=.png" alt="">
-            <img src="https://cdn.plotch.io/image/upload/C/V/1671110248_Ni5wbmc=.png" alt="">
-            <img src="https://cdn.plotch.io/image/upload/C/V/1671110264_My5wbmc=.png" alt="">
+            <a href=""><img src="https://cdn.plotch.io/image/upload/C/V/1671110234_SG9tZWRlY29yLnBuZw==.png" alt=""></a>
+            <a href=""><img src="https://cdn.plotch.io/image/upload/C/V/1671110241_NS5wbmc=.png" alt=""></a>
+            <a href=""><img src="https://cdn.plotch.io/image/upload/C/V/1671110248_Ni5wbmc=.png" alt=""></a>
+            <a href=""><img src="https://cdn.plotch.io/image/upload/C/V/1671110264_My5wbmc=.png" alt=""></a>
         </div>
     </div>
     <div id="bottom">
@@ -100,7 +139,7 @@
                 </div>
             </div>
             <div>
-                <h4>About Company</h4>
+                <h4>Our Company</h4>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, illo est doloribus error ipsa
                     earum quos in dolores hic, explicabo pariatur natus aspernatur vero nostrum placeat aliquid sapiente
                     alias provident amet magnam culpa obcaecati! Veritatis, earum a nobis voluptatibus provident ipsum,
@@ -108,10 +147,10 @@
             </div>
             <div>
                 <h4>Top Categories</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, illo est doloribus error ipsa
-                    earum quos in dolores hic, explicabo pariatur natus aspernatur vero nostrum placeat aliquid sapiente
-                    alias provident amet magnam culpa obcaecati! Veritatis, earum a nobis voluptatibus provident ipsum,
-                    accusamus soluta, non possimus officiis recusandae hic obcaecati expedita.</p>
+                <p>Grocery</p>
+                <p>Home Decor</p>
+                <p>Fashion</p>
+                <p>Kitchen Home Decor</p>
             </div>
             <div>
                 <h4>Policies & Info</h4>
