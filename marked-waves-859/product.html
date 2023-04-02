@@ -19,7 +19,7 @@
         <a href="./index.html"><img src="./Project-logo.png" alt=""></a>
         <form id="searchbar">
             <label>Search |
-                <input type="text" placeholder="Search here">
+                <input type="text" id="Search" placeholder="Search here">
                 <span id="Submit">🔍</span>
             </label>
         </form>
@@ -32,18 +32,37 @@
     </div>
     <div id="registration-form" class="registration-form">
         <div class="registration-form-content">
-            <span class="close" onclick="closeRegistrationForm()">&times;</span>
+            <span class="closeR" onclick="closeRegistrationForm()">&times;</span>
             <div id="registerblock">
-                <h2><img src="./Project-logo.png" alt=""></h2>
-                <!-- add your registration form fields here -->
-                <h3><u>Register</u></h3>
-                <p>Please provide your Mobile No.</p>
+                <img src="./Project-logo.png" alt="">
+                <!-- Registration form fields -->
+                <span><u>Register</u></span><br>
+                <span>Please provide your Mobile No.</span><br>
                 <input type="number" name="" id="RegisteredNum" placeholder="Enter 10 digit Mobile No.">
+                <span>Enter your valid email here</span><br>
                 <input type="text" name="" id="Email" placeholder="Enter Valid Email Here">
+                <span>Enter unique username</span><br>
                 <input type="" name="" id="Username" placeholder="Enter Unique Username">
+                <span>Enter your password</span><br>
                 <input type="text" id="password" placeholder="Password should be of 8 digits min.">
-                <button>Continue</button>
-                <a href="">Already Registered? Login</a>
+                <span id="cont">Continue</span>
+                <span onclick="showLoginForm()">Already Registered? Login</span>
+            </div>
+        </div>
+    </div>
+    <div id="login-form" class="login-form">
+        <div class="login-form-content">
+            <span class="closeS" onclick="closeLoginForm()">&times;</span>
+            <div id="loginblock">
+                <img src="./Project-logo.png" alt="">
+                <!-- Login form fields -->
+                <span><u>Login</u></span><br>
+                <span>Please enter your Mobile No. or Email and Password</span><br>
+                <input type="text" name="" id="LoginNum" placeholder="Enter 10 digit Mobile No. or Email">
+                <span>Enter your password</span><br>
+                <input type="password" id="login-password" placeholder="Enter your password">
+                <span id="login">Login</span>
+                <span onclick="openRegistrationForm()">New User? Register Here</span>
             </div>
         </div>
     </div>
@@ -61,67 +80,47 @@
     <div id="productbody">
         <div id="filterBy">
             <h2>Filter by</h2>
-            <div id="pricefilter">
-                <select id="groupBy">
-                    <option value="">Price</option>
+            <div id="groupBy">
+                <span>Price</span>
+                <select id="pricefilter">
+                    <option value="">Select Price</option>
                     <option value="1st">Below 500</option>
                     <option value="2nd">500-1000</option>
                     <option value="3rd">1000-2000</option>
                     <option value="4th">2000-5000</option>
                     <option value="5th">Above 5000</option>
                 </select>
-            </div>
-            <div id="discountfilter">
-                <select id="groupBy">
-                    <option value="">Discount</option>
+                <span>Discount</span>
+                <select id="discountfilter">
+                    <option value="">Select Discount</option>
                     <option value="1st">81%-90%</option>
                     <option value="2nd">71%-80%</option>
                     <option value="3rd">61%-70%</option>
                     <option value="4th">50%-60%</option>
                     <option value="5th">Below 50%</option>
                 </select>
-            </div>
-            <div id="categoryfilter">
-                <select id="groupBy">
-                    <option value="">Category</option>
+                <span>Category</span>
+                <select id="categoryfilter">
+                    <option value="">Select Category</option>
                     <option value="1st">Beauty & Personal</option>
-                    <option value="2nd">Beverages</option>
-                    <option value="3rd">Breakfast</option>
-                    <option value="4th">Household</option>
-                    <option value="5th">Cookware</option>
-                    <option value="6th">Fashion</option>
-                    <option value="7th">Grocery</option>
-                    <option value="8th">Home Decor</option>
-                    <option value="9th">Packaged food</option>
+                    <option value="2nd">Groceries</option>
+                    <option value="3rd">Home & Decor</option>
+                    <option value="4th">Laptops</option>
+                    <option value="5th">Smartphones</option>
                 </select>
-            </div>
-            <div id="timetoshipfilter">
-                <select id="groupBy">
-                    <option value="">Time To Ship</option>
+                <span>Time To Ship</span>
+                <select id="timetoshipfilter">
+                    <option value="">Select Type</option>
                     <option value="1st">1 day</option>
                     <option value="2nd">2 days</option>
                     <option value="3rd">More than 2 days</option>
-                </select>
-            </div>
-            <div id="returnablefilter">
-                <select id="groupBy">
-                    <option value="">Returnable</option>
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-                </select>
-            </div>
-            <div id="cancellablefilter">
-                <select id="groupBy">
-                    <option value="">Cancellable</option>
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
                 </select>
             </div>
         </div>
 
         <div id="productsgrid">
             <select id="sortBy">
-                <option value="">Sort by</option>
+                <option value="">Sort by Price</option>
                 <option value="lowToHigh">Low To High</option>
                 <option value="highToLow">High To Low</option>
             </select>

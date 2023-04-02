@@ -63,12 +63,23 @@ const deodorants_roll = [
 ];
 
 
+// Registration and Login Form
 function openRegistrationForm() {
     document.getElementById("registration-form").style.display = "block";
+    document.getElementById("login-form").style.display = "none";
 }
 
 function closeRegistrationForm() {
     document.getElementById("registration-form").style.display = "none";
+}
+
+function showLoginForm() {
+    document.getElementById("login-form").style.display = "block";
+    document.getElementById("registration-form").style.display = "none";
+}
+
+function closeLoginForm() {
+    document.getElementById("login-form").style.display = "none";
 }
 
 let container = document.querySelector("#productList");
@@ -76,32 +87,92 @@ let container = document.querySelector("#productList");
 // container.setAttribute("id", "productList");
 
 // console.log(conatiner.innerHTML)
-// const fil = document.querySelector("#filter");
+const filPrice = document.querySelector("#pricefilter");
+const filCat = document.querySelector("#categoryfilter");
 LSCart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// fil.addEventListener("change", function () {
-//     if (fil.value == '') {
-//         display(fetchedData);
-//     }
-//     else {
-//         let filtered = fetchedData.filter((el) => {
-//             if (fil.value == el.category) {
-//                 return true;
-//             }
-//         })
-//         display(filtered);
-//     }
-// })
+filPrice.addEventListener("change", function () {
+    console.log(filPrice.value);
+    if (filPrice.value == '') {
+        display(fetchedData);
+    }
+    else {
+        let filtered = fetchedData.filter((el) => {
+            if (filPrice.value == "1st") {
+                if (el.price < 500) {
+                    return true;
+                }
+            }
+            else if (filPrice.value == "2nd") {
+                if (el.price >= 500 && el.price < 1000) {
+                    return true;
+                }
+            }
+            else if (filPrice.value == "3rd") {
+                if (el.price >= 1000 && el.price < 2000) {
+                    return true;
+                }
+            }
+            else if (filPrice.value == "4th") {
+                if (el.price >= 2000 && el.price < 5000) {
+                    return true;
+                }
+            }
+            else if (filPrice.value == "5th") {
+                if (el.price > 5000) {
+                    return true;
+                }
+            }
+        })
+        display(filtered);
+    }
+})
+filCat.addEventListener("change", function () {
+    console.log(filCat.value);
+    if (filCat.value == '') {
+        display(fetchedData);
+    }
+    else {
+        let filtered = fetchedData.filter((el) => {
+            if (filCat.value == "1st") {
+                if (el.category == "fragrances" || el.category == "skincare") {
+                    return true;
+                }
+            }
+            else if (filCat.value == "2nd") {
+                if (el.category == "groceries") {
+                    return true;
+                }
+            }
+            else if (filCat.value == "3rd") {
+                if (el.category == "home-decoration") {
+                    return true;
+                }
+            }
+            else if (filCat.value == "4th") {
+                if (el.category == "laptops") {
+                    return true;
+                }
+            }
+            else if (filCat.value == "5th") {
+                if (el.category == "smartphones") {
+                    return true;
+                }
+            }
+        })
+        display(filtered);
+    }
+})
 
-const APIURL = "https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-tech-products";
+const APIURL = "https://dummyjson.com/products";
 let api = fetch(APIURL);
 let fetchedData = [];
 api.then(function (response) {
     return response.json();
 }).then((data) => {
-    display(data.data);
-    // console.log(data.data);
-    fetchedData = data.data;
+    display(data.products);
+    // console.log(data.products);
+    fetchedData = data.products;
 })
     .catch((err) => {
         console.log(err)
@@ -114,19 +185,19 @@ function display(data) {
         let card = document.createElement("div");
 
         let pic = document.createElement("img");
-        let Pname = document.createElement("h2");
-        let price = document.createElement("p");
+        let Pname = document.createElement("h4");
+        let price = document.createElement("h3");
         let Category = document.createElement("h4");
         let desc = document.createElement("p");
         let add = document.createElement("button");
 
-        pic.src = data[i].img;
-        Pname.innerText = data[i].brand;
-        price.innerText = `₹${data[i].price}`;
+        pic.src = data[i].thumbnail;
+        Pname.innerText = data[i].title;
+        price.innerText = `$${data[i].price}`;
         Category.innerText = data[i].category;
-        desc.innerText = data[i].details;
+        desc.innerText = data[i].description;
         add.innerText = "Add To Cart";
-
+        add.setAttribute("id", "ADD");
 
 
         add.addEventListener("click", () => {
@@ -146,3 +217,35 @@ function display(data) {
     }
 }
 
+let Search = document.querySelector("#Search");
+
+Search.addEventListener("input", function () {
+    // console.log(Search.value);
+    let searchterm = Search.value.toLowerCase();
+    if (searchterm === "") {
+        display(fetchedData);
+    }
+    else {
+        let results = fetchedData.filter(function (el) {
+            // console.log(el.products)
+            if (el.title.toLowerCase().includes(searchterm)) {
+                return true
+            }
+        })
+        display(results);
+    }
+})
+
+let sortBy = document.querySelector("#sortBy");
+
+sortBy.addEventListener("change", () => {
+    if (sortBy.value === '') {
+        display(fetchedData);
+    } else if (sortBy.value == "lowToHigh") {
+        let tempL = fetchedData.slice().sort((a, b) => { return a.price - b.price })
+        display(tempL);
+    } else if (sortBy.value == "highToLow") {
+        let tempH = fetchedData.slice().sort((a, b) => { return b.price - a.price })
+        display(tempH);
+    }
+})

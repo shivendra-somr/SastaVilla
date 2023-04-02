@@ -9,6 +9,173 @@
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./product.css">
     <style>
+        .registration-form {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .registration-form-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 25%;
+        }
+
+        #registerblock {
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            width: 100%;
+        }
+
+        #registerblock #cont {
+            width: 50%;
+            margin: auto;
+            font-size: 24px;
+            background-color: brown;
+            border-radius: 30px;
+            color: white;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+
+        #RegisteredNum,
+        #Email,
+        #Username,
+        #password {
+            /* width: 100%;
+    height: 24px;
+    margin-bottom: 15px; */
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: none;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .registration-form-content img {
+            width: 180px;
+            height: 50px;
+            margin: auto;
+            margin-bottom: 25px;
+        }
+
+        .closeR {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .closeR:hover,
+        .closeR:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .login-form {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .login-form-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 25%;
+        }
+
+        .closeS {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .closeS:hover,
+        .closeS:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #loginblock {
+            /* display: block; */
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            width: 100%;
+        }
+
+        #loginblock img {
+            width: 180px;
+            height: 50px;
+            margin: auto;
+            margin-bottom: 25px;
+        }
+
+        #loginblock span {
+            display: block;
+            margin-bottom: 25px;
+        }
+
+        #loginblock input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: none;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #login {
+            /* background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px; */
+            width: 50%;
+            margin: auto;
+            font-size: 24px;
+            background-color: brown;
+            border-radius: 30px;
+            color: white;
+            text-align: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+
+        #login:hover {
+            background-color: #45a049;
+        }
+
+        #login:focus {
+            outline: none;
+        }
+
+        #loginblock a {
+            display: block;
+            margin-top: 15px;
+        }
+
         #cart-container {
             width: 100%;
             height: 600px;
@@ -82,6 +249,41 @@
             background-color: transparent;
             border: none;
         }
+
+        #cart-items {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        #cart-items div {
+            text-align: center;
+            padding: 5px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+
+        img {
+            width: 80%;
+            height: 200px;
+        }
+
+        #orderDiv {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #placeOrder {
+            width: 150px;
+            height: 50px;
+            margin-top: 40px;
+            border-radius: 15px;
+            background-color: brown;
+            color: white;
+        }
+
+        #placeOrder:hover {
+            background-color: green;
+        }
     </style>
 </head>
 
@@ -107,18 +309,37 @@
     </div>
     <div id="registration-form" class="registration-form">
         <div class="registration-form-content">
-            <span class="close" onclick="closeRegistrationForm()">&times;</span>
+            <span class="closeR" onclick="closeRegistrationForm()">&times;</span>
             <div id="registerblock">
-                <h2><img src="./Project-logo.png" alt=""></h2>
-                <!-- add your registration form fields here -->
-                <h3><u>Register</u></h3>
-                <p>Please provide your Mobile No.</p>
+                <img src="./Project-logo.png" alt="">
+                <!-- Registration form fields -->
+                <span><u>Register</u></span><br>
+                <span>Please provide your Mobile No.</span><br>
                 <input type="number" name="" id="RegisteredNum" placeholder="Enter 10 digit Mobile No.">
+                <span>Enter your valid email here</span><br>
                 <input type="text" name="" id="Email" placeholder="Enter Valid Email Here">
+                <span>Enter unique username</span><br>
                 <input type="" name="" id="Username" placeholder="Enter Unique Username">
+                <span>Enter your password</span><br>
                 <input type="text" id="password" placeholder="Password should be of 8 digits min.">
-                <button>Continue</button>
-                <a href="">Already Registered? Login</a>
+                <span id="cont">Continue</span>
+                <span onclick="showLoginForm()">Already Registered? Login</span>
+            </div>
+        </div>
+    </div>
+    <div id="login-form" class="login-form">
+        <div class="login-form-content">
+            <span class="closeS" onclick="closeLoginForm()">&times;</span>
+            <div id="loginblock">
+                <img src="./Project-logo.png" alt="">
+                <!-- Login form fields -->
+                <span><u>Login</u></span><br>
+                <span>Please enter your Mobile No. or Email and Password</span><br>
+                <input type="text" name="" id="LoginNum" placeholder="Enter 10 digit Mobile No. or Email">
+                <span>Enter your password</span><br>
+                <input type="password" id="login-password" placeholder="Enter your password">
+                <span id="login">Login</span>
+                <span onclick="openRegistrationForm()">New User? Register Here</span>
             </div>
         </div>
     </div>
@@ -136,41 +357,17 @@
     <div id="cart-container">
         <div id="card-list">
             <span>Home/</span><a href="">MyCart</a>
-            <h3>My Cart (# Items)</h3>
-            <hr>
-            <table>
-                <thead id="header">
-                    <tr>
-                        <th>Item</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody id="cart-items">
-                </tbody>
-            </table>
-            <!-- <div id="details">
-                <span>Item Details</span>
-                <span>Quantity</span>
-                <span>MRP</span>
+            <div id="orderDiv">
+                <div>
+                    <h3>My Cart (<span id="countItems">0</span> Items)</h3>
+                    <h3>Cart Total: $ <span id="cart-total">0</span></h3>
+                </div>
+                <button id="placeOrder">Place Order</button>
             </div>
-            <hr> -->
-            <!-- <div id="productdetails">
-                <div id="productcard">
-                    <img src="" alt="">
-                    <p>Lorem ipsum dolor sit amet consectetur.</p>
-                    <button id="remove">Remove</button>
-                </div>
-                <div id="quantity">
-                    <button id="minus">-</button>
-                    <input type="number" name="" id="quantityNum">
-                    <button id="plus">+</button>
-                </div>
-                <div id="price">
-                    Price
-                </div>
-            </div> -->
+            <hr>
+            <div id="cart-items">
+
+            </div>
         </div>
 
     </div>
@@ -201,7 +398,6 @@
                 <h4>Top Categories</h4>
                 <p>Grocery</p>
                 <p>Home Decor</p>
-                <p>Fashion</p>
                 <p>Kitchen Home Decor</p>
             </div>
             <div>
@@ -218,108 +414,126 @@
 </body>
 
 <script>
-    // Get the cart from local storage or create an empty cart if it doesn't exist
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    // Get the tbody element where we'll display the cart items
-    const cartTable = document.querySelector("#cart-items");
-
-    // Function to display the cart items in the table
-    function displayCart() {
-        // Clear the current contents of the table
-        cartTable.innerHTML = "";
-
-        // Loop through each item in the cart and add a row to the table
-        cart.forEach((item, index) => {
-            const row = document.createElement("tr");
-            row.innerHTML = `
-      <td><div id='itemDesc'>${item.name}</div><button class="remove" data-index="${index}">Remove</button></td>
-      <td>
-        <button class="minus" data-index="${index}">-</button>
-        <span>${item.quantity}</span>
-        <button class="plus" data-index="${index}">+</button>
-      </td>
-      <td>$${item.price.toFixed(2)}</td>
-      <td>$${(item.price * item.quantity).toFixed(2)}</td>
-    `;
-            cartTable.appendChild(row);
-        });
-
-        // Save the updated cart to local storage
-        localStorage.setItem("cart", JSON.stringify(cart));
-    }
-
-    // Function to add an item to the cart
-    function addItem(name, price) {
-        // Check if the item is already in the cart
-        const existingItem = cart.find(item => item.name === name);
-        if (existingItem) {
-            // If it is, increase the quantity
-            existingItem.quantity++;
-        } else {
-            // Otherwise, add a new item to the cart
-            cart.push({
-                name,
-                price,
-                quantity: 1
-            });
-        }
-
-        // Display the updated cart in the table
-        displayCart();
-    }
-
-    // Function to remove an item from the cart
-    function removeItem(index) {
-        cart.splice(index, 1);
-
-        // Display the updated cart in the table
-        displayCart();
-    }
-
-    // Function to increase the quantity of an item
-    function increaseQuantity(index) {
-        cart[index].quantity++;
-
-        // Display the updated cart in the table
-        displayCart();
-    }
-
-    // Function to decrease the quantity of an item
-    function decreaseQuantity(index) {
-        if (cart[index].quantity > 1) {
-            cart[index].quantity--;
-
-            // Display the updated cart in the table
-            displayCart();
-        }
-    }
-
-    // Add event listeners to the table for the quantity and remove buttons
-    cartTable.addEventListener("click", event => {
-        const target = event.target;
-        if (target.matches(".remove")) {
-            const index = parseInt(target.dataset.index);
-            removeItem(index);
-        } else if (target.matches(".plus")) {
-            const index = parseInt(target.dataset.index);
-            increaseQuantity(index);
-        } else if (target.matches(".minus")) {
-            const index = parseInt(target.dataset.index);
-            decreaseQuantity(index);
-        }
-    });
-
-    // Call displayCart() when the page loads to show the current cart contents
-    displayCart();
-
+    // Registration and Login Form
     function openRegistrationForm() {
         document.getElementById("registration-form").style.display = "block";
+        document.getElementById("login-form").style.display = "none";
     }
 
     function closeRegistrationForm() {
         document.getElementById("registration-form").style.display = "none";
     }
+
+    function showLoginForm() {
+        document.getElementById("login-form").style.display = "block";
+        document.getElementById("registration-form").style.display = "none";
+    }
+
+    function closeLoginForm() {
+        document.getElementById("login-form").style.display = "none";
+    }
+
+    // Get the cart from local storage or create an empty cart if it doesn't exist
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Get the tbody element where we'll display the cart items
+    const bag = document.querySelector("#cart-items");
+
+    function display(data) {
+        bag.innerHTML = "";
+
+        for (let i = 0; i < data.length; i++) {
+            const countItems = document.querySelector("#countItems");
+            let card = document.createElement("div");
+
+            let pic = document.createElement("img");
+            let Pname = document.createElement("h2");
+            let price = document.createElement("h3");
+            let Category = document.createElement("p");
+            let minus = document.createElement("button");
+            // let count = document.createElement("input");
+            let count = document.createElement("span");
+            count.style.margin = "5px";
+            let plus = document.createElement("button");
+            let Remove = document.createElement("button");
+
+
+            pic.src = data[i].thumbnail;
+            Pname.innerText = data[i].title;
+            price.innerText = `$${data[i].price}`;
+            Category.innerText = data[i].category;
+            minus.innerText = "-";
+            plus.innerText = "+";
+            Remove.innerText = "Remove From Cart";
+            count.innerText = data[i].quantity;
+            Remove.addEventListener("click", () => {
+                data.splice(i, 1);
+                localStorage.setItem("cart", JSON.stringify(data));
+                display(data);
+                countItems.innerText = data.length;
+            })
+            plus.addEventListener("click", () => {
+                count.innerText = (+data[i].quantity++);
+                localStorage.setItem("cart", JSON.stringify(data));
+                display(data);
+                countItems.innerText = data.length;
+            });
+            minus.addEventListener("click", () => {
+                if ((+count.innerText) > 1) {
+                    count.innerText = (+data[i].quantity--);
+                    localStorage.setItem("cart", JSON.stringify(data));
+                    display(data);
+                    countItems.innerText = data.length;
+                }
+            });
+
+            countItems.innerText = data.length;
+            card.append(pic, Pname, price, Category, minus, count, plus, Remove);
+            bag.append(card);
+        }
+        let total = 0;
+        // let quantity = document.querySelectorAll('#cart-container div')[i].querySelector("span").innerText;
+        let total_price = document.querySelector("#cart-total");
+        for (let i = 0; i < data.length; i++) {
+            total += +(data[i].price) * (+data[i].quantity);
+        }
+        total_price.innerText = total;
+    }
+    display(cart);
+
+
+    // placeOrder.addEventListener("click", ()=>{
+    //     alert("Order Successfully")
+    // })
+    // Get references to the necessary DOM elements
+    if (cart == "") {
+        bag.innerHTML = "Your cart is Empty.Please add few products.";
+    } else {
+        const placeOrderButton = document.querySelector('#placeOrder');
+        const addressInput = document.querySelector('#address-input');
+        const pincodeInput = document.querySelector('#pincode-input');
+
+        // Add a click event listener to the "Place Order" button
+        placeOrderButton.addEventListener('click', () => {
+            // Show a pop-up box asking for the user's address and pin code
+            const address = prompt('Please enter your address:');
+            const pincode = prompt('Please enter your pin code:');
+
+            // Check if the user entered an address and pin code
+            if (address && pincode) {
+                // Show a confirmation message and redirect to the index page
+                const confirmed = confirm('Are you sure you want to place this order?');
+                if (confirmed) {
+                    window.location.href = 'index.html';
+                    data = [];
+                    localStorage.setItem("cart", JSON.stringify(data));
+                }
+            } else {
+                alert('Please enter a valid address and pin code.');
+            }
+        });
+    }
+
 
 </script>
 
