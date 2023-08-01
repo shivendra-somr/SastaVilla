@@ -57,7 +57,7 @@ Contributions are welcome! If you find any issues or have suggestions, please fe
 
 [MIT License](LICENSE)
 
-##Contact
+## Contact
 
 For any inquiries or questions, you can reach out to us via email at contact@craftsvilla.com.
 
