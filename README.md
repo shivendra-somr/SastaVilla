@@ -4,7 +4,7 @@
 
 ## Description
 
-SastaVilla is an e-commerce platform focused on promoting and selling various handmade, traditional, and ethnic products from different regions around the world. This project aims to create a web application that replicates the core features and functionalities of Craftsvilla.
+SastaVilla is an e-commerce platform focused on promoting and selling various handmade, traditional, and ethnic products from different regions around the world. This project aims to create a web application that replicates the core features and functionalities of SastaVilla.
 
 ## Table of Contents
 
