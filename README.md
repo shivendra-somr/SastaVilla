@@ -40,7 +40,7 @@ SastaVilla is an e-commerce platform focused on promoting and selling various ha
 
 ## Technologies
 
-- Front-end: HTML, CSS, JavaScript, React.js
+- Front-end: HTML, CSS, JavaScript
 - Hosting: Netlify
 
 ## Contributing
@@ -53,9 +53,6 @@ Contributions are welcome! If you find any issues or have suggestions, please fe
 4. Push to the branch: `git push origin feature/YourFeature`
 5. Open a pull request
 
-## License
-
-[MIT License](LICENSE)
 
 ## Contact
 
